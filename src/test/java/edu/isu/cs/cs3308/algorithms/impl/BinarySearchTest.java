@@ -1,6 +1,7 @@
 package edu.isu.cs.cs3308.algorithms.impl;
 
 import edu.isu.cs.cs3308.algorithms.ArraySearch;
+import edu.isu.cs.cs3308.algorithms.impl.BinarySearch;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
