@@ -26,6 +26,7 @@ public class Driver {
         Integer[] randomArray = generateRandomArray(2000);
 
 
+        // Sets up a final time long to record final time for each of the searches
         long finalTime = 0;
 
         long[] finalBinary = new long[10];
@@ -55,6 +56,7 @@ public class Driver {
             finalBinary[i] = finalTime;
         }
 
+        //Creates final long for linear
         long[] finalLinear = new long[10];
 
         for(int i = 0; i < 10; i++)
@@ -82,6 +84,7 @@ public class Driver {
             finalLinear[i] = finalTime;
         }
 
+        // Creates final recur long array
         long[] finalRecurBinary = new long[10];
 
         for(int i = 0; i < 10; i++)
@@ -104,11 +107,13 @@ public class Driver {
                 finalTime += (endTime - startTime);
             }
 
+            // Divide by 2000 since we are iterating through 2000 times.
             finalTime = finalTime / 2000;
 
             finalRecurBinary[i] = finalTime;
         }
 
+        // Creates linear long array
         long[] finalRecurLinear = new long[10];
 
         for(int i = 0; i < 10; i++)
