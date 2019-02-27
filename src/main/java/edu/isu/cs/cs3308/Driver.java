@@ -21,9 +21,123 @@ import java.util.Random;
 public class Driver {
 
     public static void main(String args[]) {
+
         // do the simulation using generateRandomArray()
+        Integer[] randomArray = generateRandomArray(2000);
+
+
+        long finalTime = 0;
+
+        long[] finalBinary = new long[10];
+        //Creates the binary Array
+        for(int i = 0; i < 10; i++)
+        {
+
+            for(int j = 0; j < 2000; j++)
+            {
+                //Creates new random int
+                Random rng = new Random();
+
+                //Gets starting time
+                long startTime = System.nanoTime();
+
+                BinarySearch binTest = new BinarySearch();
+
+                binTest.search(randomArray, rng.nextInt(2000));
+
+                long endTime = System.nanoTime();
+
+                finalTime += endTime - startTime;
+            }
+
+            finalTime = finalTime / 2000;
+
+            finalBinary[i] = finalTime;
+        }
+
+        long[] finalLinear = new long[10];
+
+        for(int i = 0; i < 10; i++)
+        {
+
+            for(int j = 0; j < 2000; j++)
+            {
+                //Creates new random int
+                Random rng = new Random();
+
+                //Gets starting time
+                long startTime = System.nanoTime();
+
+                LinearSearch linSearch = new LinearSearch();
+
+                linSearch.search(randomArray, rng.nextInt(2000));
+
+                long endTime = System.nanoTime();
+
+                finalTime += endTime - startTime;
+            }
+
+            finalTime = finalTime / 2000;
+
+            finalLinear[i] = finalTime;
+        }
+
+        long[] finalRecurBinary = new long[10];
+
+        for(int i = 0; i < 10; i++)
+        {
+
+            for(int j = 0; j < 2000; j++)
+            {
+                //Creates new random int
+                Random rng = new Random();
+
+                //Gets starting time
+                long startTime = System.nanoTime();
+
+                RecursiveBinarySearch recurBin = new RecursiveBinarySearch();
+
+                recurBin.search(randomArray,rng.nextInt(2000));
+
+                long endTime = System.nanoTime();
+
+                finalTime += (endTime - startTime);
+            }
+
+            finalTime = finalTime / 2000;
+
+            finalRecurBinary[i] = finalTime;
+        }
+
+        long[] finalRecurLinear = new long[10];
+
+        for(int i = 0; i < 10; i++)
+        {
+
+            for(int j = 0; j < 2000; j++)
+            {
+                //Creates new random int
+                Random rng = new Random();
+
+                //Gets starting time
+                long startTime = System.nanoTime();
+
+                RecursiveLinearSearch recurlin = new RecursiveLinearSearch();
+
+                recurlin.search(randomArray, rng.nextInt(2000));
+
+                long endTime = System.nanoTime();
+
+                finalTime += endTime - startTime;
+            }
+
+            finalTime = finalTime / 2000;
+
+            finalRecurLinear[i] = finalTime;
+        }
 
         // report the results using report;
+        report(finalLinear,finalRecurLinear,finalBinary,finalRecurBinary, 2000, 10);
     }
 
     /**

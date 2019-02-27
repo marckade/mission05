@@ -31,5 +31,6 @@ public class RecursiveLinearSearch implements ArraySearch {
             return index;
         }
         return recLinearSearch(array,item,index +1);
+
     }
 }
